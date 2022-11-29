@@ -1,0 +1,39 @@
+####################################################################################
+################### Overview over WRF-versions used in this directory ##############
+####################################################################################
+#
+# modules with modified code in /home/woody/gwgi/gwgi022h/WRF/files_to_change/*
+# results of test rus in /home/woody/gwgi/gwgi022/WRF/wrfout_archive/*
+#
+# i) WRF-release-v4.3.3: original version of Christina Schmid, with snow drift modules
+# modified files: phys/: module_snowdriver.F, module_snower.F, module_snowset.F, module_snowsubl.F, module_snowvel.F
+#                          dyn_em/: solve_em.F, module_first_rk_step_part1.F
+#                          Registry/: Registry.EM_COMMON
+#                          for ideal: remove snicexy in snowdriver, snower, snowset, first_rk_step
+#    successfull test run on 1410
+#
+#ii) WRF-release-v4.3.3_debugV1: modified version with additional output files (accumulated erosion/deposition as mass change, accumulated drifting snow sublimation)
+#modified files: phys/: module_snowdriver, module_snower, module_snowset, module_snowsubl, 
+#                dyn_em/: module_first_rk_step_part1
+#                Registry/: Registry.EM_COMMON 
+#    successfull test run on 2010 (did not change mass conservation)
+#
+#
+#iii) debug_v2_1: first simple bug-fixes: update saltation layer height (update old concentration with new layer height before adding new concentration), integration for variable snowload (before: only add up conconcentrations, no multiplication with layer thickness)
+# modified files: phys/: module_snower.F, module_snowset.F
+#                 Registry/: Registry.EM_COMMON
+#     successfull test run on 0811 (did not change mass conservation)
+#
+#
+#iv) debug_v2_2: bug fix in erosion module: limit erosion flux to available snow mass at the ground before updating other terms
+#modified files: phys/: module_snower.F
+#     succsessfull test run on 0911 (did not change mass conservation)
+#
+#v) debug_v2_3: bux fix in sublimation module: limit sublimation to available tracer and saturation mixing ratio before updating
+#modified files: phys/: module_snowsubl.F
+#     successfull test run on 1011 (did not change mass conservation)
+#
+#vi) debug_v2_4: bug fix in deposition module: bug similar to saltation layer bug, but in settling velocity (flux between layers of different height, now: move mass not concentration from upper to lower layer)
+#modified files: phys/: module snowset.F
+#     successfull test run on 1511 (increases downward flux -> finer vertical grid close to surface => increases depositio => increases deposition)
+#
