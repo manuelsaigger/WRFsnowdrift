@@ -147,7 +147,7 @@ DO j=jts,jte
     ! update snow mass, snow height
     snow(i,j) = snow(i,j) - (fero(i,j) - fdep(i,j))*dt
     snowh(i,j) = snowh(i,j) - ((fero(i,j) - fdep(i,j))*dt)/rhodrift(i,j) ! update snowheight as well (only in ideal case)
-    !snicexy(i,0,j) = snicexy(i,0,j) - dmsalt - fsalt(i,j)*dt  ! uncomment this line for real 
+    !snicexy(i,0,j) = snicexy(i,0,j) - (fero(i,j) - fdep(i,j))*dt  ! uncomment this line for real 
     
     ! write out accumulated snow erosion/deposition (only use positve/negative saltation mass change
     snoweracckg(i,j) = snoweracckg(i,j) + (fero(i,j)*dt) ! accumulated eroded snow mass (kg m-2)

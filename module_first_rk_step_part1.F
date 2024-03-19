@@ -902,7 +902,7 @@ BENCH_END(surf_driver_tim)
          USTAR=grid%ust, USTARCOR=grid%ustarcor, PHIS=grid%phis, PHIS_END=grid%phis_end, PHIM=grid%phim, TRACER=tracer,     &
          HSALT=grid%hsalt, RHODRIFT=grid%rhodrift, SNOW=grid%snow, SNOWH=grid%snowh,                &
          SNOWERACC=grid%snoweracc, SNOWERACCKG=grid%snoweracckg, FSALT=grid%fsalt,                  &
-         FERO=grid%fero,                                                                            & ! snicexy, & 
+         FERO=grid%fero,                                                                            & ! SNICEXY=grid%snicexy, & 
          T_PHY=grid%t_phy, P_PHY=p_phy, ALT=grid%alt, SNOWSUBL=grid%snowsubl,                       &
          TEMPCH=grid%tempch, MOISTCH=grid%moistch, ZMID=grid%z, ZLOW=grid%z_at_w,                   &
          TEMPCHACC=grid%tempchacc,                                                                  &
